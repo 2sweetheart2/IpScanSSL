@@ -1,3 +1,5 @@
+package me.sweettie;
+
 import io.javalin.Javalin;
 
 import java.awt.*;
@@ -40,7 +42,7 @@ public class Main {
     }
 
     private static void saveToFile(Map<String, List<String>> data) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("ipAndDnsInRange"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("ipAndDnsInRange.txt"))) {
             for (Map.Entry<String, List<String>> entry : data.entrySet()) {
                 if (entry.getValue().size() == 0)
                     continue;
