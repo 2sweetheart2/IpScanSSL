@@ -41,13 +41,13 @@ public class Main {
 
     private static void saveToFile(Map<String, List<String>> data) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("ipAndDnsInRange"))) {
-            for(Map.Entry<String,List<String>> entry : data.entrySet()){
-                if(entry.getValue().size()==0)
+            for (Map.Entry<String, List<String>> entry : data.entrySet()) {
+                if (entry.getValue().size() == 0)
                     continue;
                 writer.write("IP: " + entry.getKey());
                 writer.newLine();
-                for(String dns : entry.getValue()){
-                    writer.write("- " +dns);
+                for (String dns : entry.getValue()) {
+                    writer.write("- " + dns);
                     writer.newLine();
                 }
             }
