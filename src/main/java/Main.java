@@ -1,8 +1,10 @@
 import io.javalin.Javalin;
 
+import java.awt.*;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URI;
 import java.util.List;
 import java.util.Map;
 
@@ -23,6 +25,18 @@ public class Main {
             saveToFile(data);
             ctx.html(getEndForm(data));
         });
+        openBrowser("http://localhost:7000");
+
+    }
+
+    private static void openBrowser(String url) {
+        if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+            try {
+                Desktop.getDesktop().browse(new URI(url));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private static void saveToFile(Map<String, List<String>> data) {
